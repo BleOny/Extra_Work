@@ -1,0 +1,380 @@
+<sdf version='1.4'>
+  <model name='mickeymouse'>
+    <link name='base_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.64 0 -0 0</pose>
+        <mass>50</mass>
+        <inertia>
+          <ixx>78.624</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>38.624</iyy>
+          <iyz>20.4</iyz>
+          <izz>45</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>2</length>
+            <radius>1</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_left_base'>
+        <pose>0 1 -1.26 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.6 0.4 0.5</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_left_leg'>
+        <pose>0 1 -1.36 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2 0.4 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_right_base'>
+        <pose>0 -1 -1.24 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.6 0.4 0.5</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_right_leg'>
+        <pose>0 -1 -0.34 0 1.57075 0</pose>
+        <geometry>
+          <box>
+            <size>2 0.4 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>2</length>
+            <radius>1</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_left_base'>
+        <pose>0 1 -1.26 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.6 0.4 0.5</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_left_leg'>
+        <pose>0 1 -0.36 0 1.57075 0</pose>
+        <geometry>
+          <box>
+            <size>2 0.4 1</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_right_base'>
+        <pose>0 -1 -1.24 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.6 0.4 0.5</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_right_leg'>
+        <pose>0 -1 -0.34 0 1.57075 0</pose>
+        <geometry>
+          <box>
+            <size>2 0.4 1</size>
+          </box>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='head_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>4</mass>
+        <inertia>
+          <ixx>3</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3</iyy>
+          <iyz>0</iyz>
+          <izz>3</izz>
+        </inertia>
+      </inertial>
+      <collision name='head_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>1</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <collision name='head_link_collision_left_ear_link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.7</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <collision name='head_link_collision_right_ear_link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.7</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='head_link_visual'>
+        <pose>0 0 1 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>1</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <visual name='head_link_visual_left_ear_link'>
+        <pose>0 -0.7 1.7 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.7</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <visual name='head_link_visual_right_ear_link'>
+        <pose>0 0.5 1.7 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.7</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='base_link_to_head_link' type='revolute'>
+      <child>head_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='left_back_wheel'>
+      <pose>0.4 1 -1.71 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_back_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.4</length>
+            <radius>0.2</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='left_back_wheel_visual'>
+        <pose>0 0 0 -1.57075 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.4</length>
+            <radius>0.2</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='left_back_wheel_joint' type='revolute'>
+      <child>left_back_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='left_front_wheel'>
+      <pose>-0.4 1 -1.71 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_front_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.4</length>
+            <radius>0.2</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='left_front_wheel_visual'>
+        <pose>0 0 0 -1.57075 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.4</length>
+            <radius>0.2</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='left_front_wheel_joint' type='revolute'>
+      <child>left_front_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='right_back_wheel'>
+      <pose>-0.4 -1 -1.69 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_back_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.4</length>
+            <radius>0.2</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='right_back_wheel_visual'>
+        <pose>0 0 0 1.57075 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.4</length>
+            <radius>0.2</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='right_back_wheel_joint' type='revolute'>
+      <child>right_back_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='right_front_wheel'>
+      <pose>0.4 -1 -1.69 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_front_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.6 0.4 0.5</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='right_front_wheel_visual'>
+        <pose>0 0 0 1.57075 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.4</length>
+            <radius>0.2</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='right_front_wheel_joint' type='revolute'>
+      <child>right_front_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+  </model>
+</sdf>
+
